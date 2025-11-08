@@ -1,59 +1,50 @@
-import socket
-from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.button import Button
-from kivy.uix.boxlayout import BoxLayout
-from kivy.core.window import Window
-from kivy.clock import Clock # Нужен для сетевых операций в Kivy
+[app]
 
-Window.size = (500, 500)
-Window.clearcolor = (186/255, 133/255, 0/255)
-Window.title = "UtkaEat"
+# (str) Title of your application
+title = UtkaEat Client App
 
-# Настройки сервера, куда отправляем данные
-SERVER_HOST = '127.0.0.1' # Если сервер на другом ПК, измените на его IP
-SERVER_PORT = 65432
+# (str) Package name
+package.name = utkaeatclient
 
-class UtkaEat(App):
+# (str) Package domain (needed for Google Play AAB format)
+package.domain = org.test
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.status_label = None
-        self.server_address = (SERVER_HOST, SERVER_PORT)
+# (str) Application version
+version = 0.1
 
-    def send_order(self, message):
-        """Функция отправки сообщения на сервер."""
-        try:
-            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-                s.connect(self.server_address)
-                s.sendall(message.encode('utf-8'))
-                if self.status_label:
-                    self.status_label.text = f"Статус: Отправлено: '{message}'"
-        except ConnectionRefusedError:
-            if self.status_label:
-                self.status_label.text = "Ошибка: Сервер недоступен."
-        except Exception as e:
-            if self.status_label:
-                self.status_label.text = f"Ошибка сети: {e}"
+android.arch = armeabi-v7a
+p4a.python_version = 3.10 
 
-    def button_pressed(self, instance):
-        """Обработчик кнопки: отправляет сообщение 'заказ'."""
-        # Используем Clock для выполнения сетевой операции, чтобы не блокировать GUI
-        Clock.schedule_once(lambda dt: self.send_order("заказ"), 0)
+# (list) Application requirements
+requirements = python3, kivy
 
-    def build(self):
-        box = BoxLayout(orientation='vertical')
-        btn = Button(text='Нажать для заказа', font_size='20sp')
-        btn.bind(on_press=self.button_pressed) 
-        
-        label = Label(text='UtkaEats', font_size='30sp')
-        self.status_label = Label(text='Статус: Готов')
+# (str) Main application file and source directory
+source.dir = .
+main.py = main.py 
 
-        box.add_widget(label)
-        box.add_widget(self.status_label)
-        box.add_widget(btn)
+# (list) Permissions
+permissions = INTERNET
 
-        return box
+# (str) Icon file - Используем относительный путь от source.dir (.)
+icon.filename = icon.png 
 
-if __name__ == "__main__":
-    UtkaEat().run()
+# (list) Supported orientations
+orientation = portrait
+
+# (bool) Enable fullscreen mode
+fullscreen = 0 
+
+# Android target APIs
+android.api = 27 
+android.minapi = 21
+android.targetapi = 27
+
+# ----------------------------------------------------------------------
+# Расширенные настройки, которые можно оставить по умолчанию
+# ----------------------------------------------------------------------
+
+# (bool) Use the Python environment bootstrap
+# android.use_setup_env = true
+
+# (str) Presplash image
+# presplash.filename = %(source.dir)s/data/presplash.png
