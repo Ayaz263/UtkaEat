@@ -20,7 +20,7 @@ requirements = python3, kivy
 
 # (str) Main application file and source directory
 source.dir = .
-main.py = main.py 
+main.py = client.py 
 
 # (list) Permissions
 permissions = INTERNET
@@ -48,3 +48,4 @@ android.targetapi = 27
 
 # (str) Presplash image
 # presplash.filename = %(source.dir)s/data/presplash.png
+
