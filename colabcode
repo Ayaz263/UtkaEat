@@ -1,0 +1,9 @@
+# Установка базовых инструментов (пример для Ubuntu/Debian)
+!sudo apt update
+!sudo apt install build-essential git zip unzip openjdk-17-jdk python3-pip autoconf libtool screen swig libsdl2-gfx-dev libsdl2-mixer-dev libsdl2-image-dev pkg-config
+
+# Установка Python-пакетов
+!pip install buildozer kivy[base]
+
+!cd UtkaEat/
+!buildozer android debug
