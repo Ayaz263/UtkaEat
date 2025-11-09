@@ -14,7 +14,6 @@ import sys
 SERVER_HOST = '192.168.1.6' # Убедитесь, что это IP вашего сервера
 SERVER_PORT = 65432
 
-Window.size = (500, 600) # Немного увеличим окно для чата
 Window.clearcolor = (186/255, 133/255, 0/255)
 Window.title = "UtkaEat Chat Client"
 
