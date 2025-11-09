@@ -10,7 +10,7 @@ package.name = utkaeatclient
 package.domain = org.test
 
 # (str) Application version
-version = 0.1
+version = 0.3
 
 android.arch = armeabi-v7a
 p4a.python_version = 3.10 
@@ -29,8 +29,7 @@ permissions = INTERNET
 icon.filename = icon.png 
 
 # (list) Supported orientations
-orientation = portrait
-
+orientation = landscape
 # (bool) Enable fullscreen mode
 fullscreen = 0 
 
