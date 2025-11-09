@@ -10,7 +10,7 @@ package.name = utkaeatclient
 package.domain = org.test
 
 # (str) Application version
-version = 0.3
+version = 0.4
 
 android.arch = armeabi-v7a
 p4a.python_version = 3.10 
@@ -24,6 +24,7 @@ main.py = main.py
 
 # (list) Permissions
 permissions = INTERNET
+android.permissions = INTERNET
 
 # (str) Icon file - Используем относительный путь от source.dir (.)
 icon.filename = icon.png 
@@ -34,9 +35,9 @@ orientation = landscape
 fullscreen = 0 
 
 # Android target APIs
-android.api = 27 
-android.minapi = 21
-android.targetapi = 27
+android.api = 33 
+android.minapi = 24
+android.targetapi = 33
 
 # ----------------------------------------------------------------------
 # Расширенные настройки, которые можно оставить по умолчанию
