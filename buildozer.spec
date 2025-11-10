@@ -1,7 +1,7 @@
 [app]
 
 # (str) Title of your application
-title = UtkaEat Client App
+title = UtkaEat Wd Client App
 
 # (str) Package name
 package.name = utkaeatclient
@@ -10,7 +10,7 @@ package.name = utkaeatclient
 package.domain = org.test
 
 # (str) Application version
-version = 0.4
+version = 0.7
 
 android.arch = armeabi-v7a
 p4a.python_version = 3.10 
